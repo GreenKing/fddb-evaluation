@@ -45,7 +45,7 @@ cp fddb-evaluation/DEBUG/fddbEval.exe bin/
 
 for example
 ```
-eval -a ./FDDB-folds/FDDB-fold-ellipseList.txt -d  ./fddb.txt -i path/to/images/dir -l ./FDDB-folds/FDDB-folds.txt -r ./facedet
+fddbEval  -a ./FDDB-folds/FDDB-fold-ellipseList.txt -d  ./fddb.txt -i path/to/images/dir -l ./FDDB-folds/FDDB-folds.txt -r ./facedet
 ```
 
 **Evaluation**
