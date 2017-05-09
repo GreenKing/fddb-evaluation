@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import os
 import fire
 
 plt.style.use('ggplot')
@@ -7,7 +8,9 @@ plt.style.use('ggplot')
 
 class Evaluation(object):
     def eval(self, isdisc, name):
-        file = open("bin/npdDiscROC.txt")
+        test_type = "Disc" if isdisc else "Cont"
+        roc_file = name + test_type + "ROC.txt"
+        file = open(os.path.join("bin/", roc_file))
         plt.figure("DiscRoc")
         plt.xlabel("False Positive")
         plt.ylabel("True Positive Rate")
