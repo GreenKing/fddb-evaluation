@@ -11,6 +11,8 @@
 
 #include "common.hpp"
 
+#include "Getopt.hpp"
+
 #ifdef __XCODE__
 #include <OpenCV/OpenCV.h>
 #endif
@@ -64,16 +66,19 @@ void printUsage(){
 int main(int argc, char *argv[]){
 
 #ifndef _WIN32
-  int c;
-  opterr = 0;
+  
 #endif
 
   // default values for different command-line arguments
 #ifdef _WIN32
-  string baseDir = "F:/scratch/Data/facesInTheWild/";
-  string listFile = "F:/scratch/Data/detectionResults/FDDB/imList.txt";
-  string detFile = "F:/scratch/Data/detectionResults/FDDB/MikolajczykDets.txt";
-  string annotFile = "F:/scratch/Data/detectionResults/FDDB/ellipseList.txt";
+  //string baseDir = "F:/scratch/Data/facesInTheWild/";
+  //string listFile = "F:/scratch/Data/detectionResults/FDDB/imList.txt";
+  //string detFile = "F:/scratch/Data/detectionResults/FDDB/MikolajczykDets.txt";
+  //string annotFile = "F:/scratch/Data/detectionResults/FDDB/ellipseList.txt";
+  string baseDir = "D:/GK/WorkSpace/Code/Python/tools/mxnet_mtcnn_face_detection-master/fddb/originalPics/";
+  string listFile = "D:/GK/WorkSpace/Code/Cpp/fddb-evaluation/build/Release/FDDB-folds/FDDB-folds.txt";
+  string detFile = "D:/GK/WorkSpace/Code/Cpp/fddb-evaluation/build/Release/result/fddb.txt";
+  string annotFile = "D:/GK/WorkSpace/Code/Cpp/fddb-evaluation/build/Release/FDDB-folds/FDDB-fold-ellipseList.txt";
 #else
   string baseDir = "/Users/vidit/scratch/Data/facesInTheWild/";
   string listFile = "/Users/vidit/scratch/Data/detectionResults/FDDB/imList.txt";
@@ -92,13 +97,16 @@ int main(int argc, char *argv[]){
   // display the matched pairs
   bool showMatchPairs = false;
 
-  if(argc == 1)
-  {
-    printUsage();
-    return 0;
-  }
 
-#ifndef _WIN32
+
+#if 1
+  int c;
+  //opterr = 0;
+  if (argc == 1)
+  {
+	  printUsage();
+	  return 0;
+  }
   // parse the input
   while( (c = getopt(argc, argv, "l:r:d:a:z:i:f:s")) != -1){
     switch(c){

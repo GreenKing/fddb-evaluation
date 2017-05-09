@@ -1,0 +1,4 @@
+fddb-evaluation/build/
+bin/*
+!bin/FDDB-folds
+fddb.png
