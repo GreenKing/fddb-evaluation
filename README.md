@@ -51,5 +51,5 @@ fddbEval  -a ./FDDB-folds/FDDB-fold-ellipseList.txt -d  ./fddb.txt -i path/to/im
 **Evaluation**
 ```
 cd ${fddb-evaluation}
-python runEvaluate.py
+python runEvaluate.py eval 1 facedet
 ```
